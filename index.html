@@ -5,192 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>🌀 灵魂荒诞指数测试</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: #0a0a0f;
-  color: #e0e0e0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-}
-.container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-h1 {
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.subtitle {
-  text-align: center;
-  color: #888;
-  margin-bottom: 40px;
-  font-size: 0.95em;
-}
-.progress-bar {
-  width: 100%;
-  height: 4px;
-  background: #222;
-  border-radius: 2px;
-  margin-bottom: 30px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
-  border-radius: 2px;
-  transition: width 0.4s ease;
-}
-.question-card {
-  background: #151520;
-  border: 1px solid #2a2a3a;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 20px;
-}
-.q-number {
-  font-size: 0.8em;
-  color: #666;
-  margin-bottom: 12px;
-}
-.q-text {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  color: #fff;
-}
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.option {
-  background: #1a1a2e;
-  border: 1px solid #2a2a4a;
-  border-radius: 12px;
-  padding: 16px 20px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  font-size: 0.95em;
-  line-height: 1.4;
-  -webkit-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-}
-.option:active, .option.tapped {
-  background: #252545;
-  border-color: #48dbfb;
-  transform: scale(0.97);
-}
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1px solid #333;
-  color: #888;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85em;
-  cursor: pointer;
-  margin-bottom: 16px;
-  -webkit-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-}
-.back-btn:active { background: #1a1a2e; color: #fff; }
-.screen { text-align: center; }
-.screen p { color: #aaa; line-height: 1.8; margin-bottom: 20px; }
-.btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  border: none;
-  padding: 14px 40px;
-  border-radius: 30px;
-  font-size: 1.1em;
-  cursor: pointer;
-  margin-top: 20px;
-  -webkit-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-}
-.btn:active { transform: scale(0.96); opacity: 0.9; }
-.result-type {
-  font-size: 2.2em;
-  margin: 16px 0;
-  padding: 20px;
-  background: linear-gradient(135deg, #1a1a2e, #252545);
-  border-radius: 16px;
-  border: 1px solid #3a3a5a;
-}
-.result-desc {
-  color: #bbb;
-  line-height: 1.8;
-  margin: 20px 0;
-  text-align: left;
-  padding: 0 10px;
-}
-.result-traits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin: 20px 0;
-}
-.trait-tag {
-  background: #252545;
-  border: 1px solid #3a3a5a;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85em;
-  color: #48dbfb;
-}
-.dimensions {
-  text-align: left;
-  margin: 24px 0;
-  padding: 20px;
-  background: #151520;
-  border-radius: 12px;
-}
-.dim-item { margin-bottom: 16px; }
-.dim-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 0.8em;
-  color: #aaa;
-}
-.dim-bar {
-  height: 8px;
-  background: #222;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.dim-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 1s ease;
-}
-.hidden { display: none !important; }
-.emoji-big { font-size: 3.5em; margin: 20px 0; }
-.share-tip {
-  margin-top: 24px;
-  padding: 16px 20px;
-  background: #151520;
-  border-radius: 12px;
-  border: 1px solid #2a2a3a;
-  color: #888;
-  font-size: 0.85em;
-  line-height: 1.6;
-}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e0e0e0;min-height:100vh;overflow-x:hidden;-webkit-text-size-adjust:100%}
+.container{max-width:680px;margin:0 auto;padding:40px 20px}
+h1{text-align:center;font-size:1.8em;margin-bottom:8px;background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{text-align:center;color:#888;margin-bottom:40px;font-size:.95em}
+.progress-bar{width:100%;height:4px;background:#222;border-radius:2px;margin-bottom:30px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb);border-radius:2px;transition:width .4s ease}
+.question-card{background:#151520;border:1px solid #2a2a3a;border-radius:16px;padding:24px;margin-bottom:20px}
+.q-number{font-size:.8em;color:#666;margin-bottom:12px}
+.q-text{font-size:1.1em;line-height:1.6;margin-bottom:24px;color:#fff}
+.options{display:flex;flex-direction:column;gap:12px}
+.option{background:#1a1a2e;border:1px solid #2a2a4a;border-radius:12px;padding:16px 20px;cursor:pointer;transition:all .15s ease;font-size:.95em;line-height:1.4;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.option:active,.option.tapped{background:#252545;border-color:#48dbfb;transform:scale(.97)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #333;color:#888;padding:8px 16px;border-radius:20px;font-size:.85em;cursor:pointer;margin-bottom:16px;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.back-btn:active{background:#1a1a2e;color:#fff}
+.screen{text-align:center}
+.screen p{color:#aaa;line-height:1.8;margin-bottom:20px}
+.btn{display:inline-block;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:14px 40px;border-radius:30px;font-size:1.1em;cursor:pointer;margin-top:20px;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.btn:active{transform:scale(.96);opacity:.9}
+.result-type{font-size:2.2em;margin:16px 0;padding:20px;background:linear-gradient(135deg,#1a1a2e,#252545);border-radius:16px;border:1px solid #3a3a5a}
+.result-desc{color:#bbb;line-height:1.8;margin:20px 0;text-align:left;padding:0 10px}
+.result-traits{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0}
+.trait-tag{background:#252545;border:1px solid #3a3a5a;padding:6px 14px;border-radius:20px;font-size:.85em;color:#48dbfb}
+.dimensions{text-align:left;margin:24px 0;padding:20px;background:#151520;border-radius:12px}
+.dim-item{margin-bottom:16px}
+.dim-label{display:flex;justify-content:space-between;margin-bottom:6px;font-size:.8em;color:#aaa}
+.dim-bar{height:8px;background:#222;border-radius:4px;overflow:hidden}
+.dim-fill{height:100%;border-radius:4px;transition:width 1s ease}
+.hidden{display:none !important}
+.emoji-big{font-size:3.5em;margin:20px 0}
+.guide-section{text-align:left;margin:24px 0;padding:20px;background:#151520;border-radius:12px;border:1px solid #2a2a3a}
+.guide-title{color:#fff;font-size:.95em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.guide-text{color:#bbb;font-size:.9em;line-height:1.8}
+.match-section{text-align:left;margin:24px 0;padding:20px;background:#151520;border-radius:12px;border:1px solid #2a2a3a}
+.match-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #222}
+.match-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.match-type{color:#fff;font-size:.95em;margin-bottom:4px}
+.match-tag{display:inline-block;background:#1a2a1a;border:1px solid #2a4a2a;padding:2px 10px;border-radius:10px;font-size:.75em;color:#55efc4;margin-right:6px}
+.match-reason{color:#999;font-size:.85em;line-height:1.6;margin-top:6px}
+.share-tip{margin-top:24px;padding:16px 20px;background:#151520;border-radius:12px;border:1px solid #2a2a3a;color:#888;font-size:.85em;line-height:1.6}
 </style>
 </head>
 <body>
@@ -206,310 +60,263 @@ h1 {
       <span style="color:#666">⚠️ 可能会让你产生存在主义危机</span>
     </p>
     <button class="btn" id="startBtn">开始解剖灵魂</button>
-    <p style="color:#444;font-size:0.75em;margin-top:24px">涅小炎 出品</p>
+    <p style="color:#444;font-size:.75em;margin-top:24px">涅小炎 出品</p>
   </div>
-
   <div id="quiz-screen" class="hidden">
     <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
     <div id="question-area"></div>
   </div>
-
   <div id="result-screen" class="hidden screen"></div>
 </div>
-
 <script>
-(function() {
-  "use strict";
+(function(){"use strict";
+var questions=[
+{text:"凌晨 3 点，你突然意识到自己正在活着。你的第一反应是？",options:[
+{text:"「卧槽，好神奇」— 开始疑惑这到底是不是一个模拟程序",scores:[3,0,1,2]},
+{text:"「行吧」— 翻个身继续睡，这种事想多了会秃头",scores:[0,3,2,0]},
+{text:"「这个感觉值得发条朋友圈」— 已经在编文案了",scores:[1,1,0,3]},
+{text:"突然觉得很感动，想给某个人发消息说"我很高兴认识你"",scores:[1,2,3,1]}
+]},
+{text:"你走在路上，突然发现一个陌生人在对你微笑。持续了 3 秒。你？",options:[
+{text:"立刻回想自己今天穿了什么、脸上是不是有东西",scores:[3,0,1,1]},
+{text:"笑回去。虽然不知道为啥，但感觉今天运气不错",scores:[0,1,3,1]},
+{text:"假装没看见，加快脚步。社交电量不足以处理这个",scores:[1,3,0,0]},
+{text:"脑补了一整个「我们是失散多年的某种关系」的故事线",scores:[1,0,1,3]}
+]},
+{text:"周五下班，没有任何安排。你的默认状态是？",options:[
+{text:"终于可以安静地想些白天没空想的事了",scores:[3,0,1,1]},
+{text:"瘫着。什么都不想做，也不觉得这有什么问题",scores:[0,3,1,0]},
+{text:"有点空虚，开始翻聊天记录看有没有人可以约",scores:[0,1,3,1]},
+{text:"打开备忘录写点什么，或者找部电影 — 总之要填满这个晚上",scores:[1,1,0,3]}
+]},
+{text:"你在一个无聊的饭局上，发现手机只剩 3% 的电。你？",options:[
+{text:"焦虑。立刻扫视全场找充电器，这是最优先的事",scores:[3,0,0,1]},
+{text:"正好，有了不看手机的借口。安心放空了",scores:[0,3,1,1]},
+{text:"有点慌，万一有人找我怎么办。先省电别刷了",scores:[0,1,3,0]},
+{text:"死前拍一张「3%电量的界面截图」发条朋友圈：「危」",scores:[1,0,0,3]}
+]},
+{text:"你刚偷听到两个同事在背后讨论你，说"那个人挺特别的"。你？",options:[
+{text:"开始拆解：TA们说的"特别"是哪个层面？褒义还是贬义？",scores:[3,0,1,1]},
+{text:"内心毫无波澜，别人的评价改变不了我是谁",scores:[0,3,0,1]},
+{text:"心里一紧，开始回放最近和TA们的每次互动",scores:[0,1,3,0]},
+{text:"有点得意——特别就对了，我可不想当普通人",scores:[1,1,0,3]}
+]},
+{text:"如果你可以永久删除人生中的一种感受，你选哪个？",options:[
+{text:""明明知道答案却做不到"的拧巴感",scores:[3,0,1,1]},
+{text:""周围很热闹但我很孤独"的疏离感",scores:[1,1,3,1]},
+{text:"什么都不删，这些都是我的一部分",scores:[0,3,1,0]},
+{text:""别人在过我想要的生活"的焦虑感",scores:[1,0,0,3]}
+]},
+{text:"你发现一个很久没联系的朋友删了你的微信。你？",options:[
+{text:"有点不爽，想找 TA 问清楚为什么",scores:[1,0,3,2]},
+{text:"开始回想最近自己做了什么，是不是哪里得罪了 TA",scores:[3,0,1,0]},
+{text:"没什么感觉。人来人往很正常",scores:[0,3,0,1]},
+{text:"有点失落，不会去问，但心里会想一阵子",scores:[0,1,2,1]}
+]},
+{text:"以下四种生活，哪种你最"受不了"？",options:[
+{text:"每天的日程被完全安排好，精确到小时，不能改",scores:[0,2,1,3]},
+{text:"永远不能独处，随时都有人在旁边",scores:[2,3,0,1]},
+{text:"不允许记录任何东西 — 不能写字、拍照、发朋友圈",scores:[1,1,1,3]},
+{text:"所有人都对你绝对诚实，永远不会对你客套或委婉",scores:[0,1,3,0]}
+]},
+{text:"以下哪种情况会让你产生一种说不清的不适感？",options:[
+{text:"同学聚会上所有人都在聊房贷和孩子，气氛很融洽",scores:[2,2,0,3]},
+{text:"你发了一条很用心的朋友圈，两小时了只有 3 个赞",scores:[1,0,3,2]},
+{text:"做了一个很真实的梦，醒来后花了 10 秒才确认哪边是现实",scores:[3,1,1,1]},
+{text:"某天突然意识到父母已经开始用你教他们的方式跟你说话了",scores:[1,1,3,1]}
+]},
+{text:"一个全知全能的存在给你一次机会：可以知道关于自己的一个终极真相。你问什么？",options:[
+{text:"「我这辈子做过的最正确的决定是哪个？」",scores:[1,2,2,1]},
+{text:"「别人真正怎么看我？」",scores:[1,0,3,2]},
+{text:"「我还没发现的、最大的潜力是什么？」",scores:[2,1,0,3]},
+{text:"「我正在因为什么而浪费生命？」",scores:[3,1,1,1]}
+]},
+{text:"你死后，你的鬼魂可以在一个地方永远飘荡。你选？",options:[
+{text:"一个巨大的图书馆，书会自动更新",scores:[3,1,0,1]},
+{text:"一片永远是黄昏的海边",scores:[0,3,2,1]},
+{text:"我活着时最快乐的那个房间的那个下午",scores:[0,1,3,1]},
+{text:"一个永远热闹的深夜小酒馆，但没人能看见我",scores:[1,1,1,3]}
+]},
+{text:"最后一题。做完这个测试你会？",options:[
+{text:"开始研究它的分类逻辑是怎么设计的",scores:[3,0,0,1]},
+{text:"看一眼就关了，测着玩而已",scores:[0,3,1,0]},
+{text:"被戳中了某句话，愣了一下",scores:[0,0,3,1]},
+{text:"截图发朋友，让他们也来测",scores:[1,1,0,3]}
+]}
+];
 
-  var questions = [
-    {
-      text: "\u51cc\u66a8 3 \u70b9\uff0c\u4f60\u7a81\u7136\u610f\u8bc6\u5230\u81ea\u5df1\u6b63\u5728\u6d3b\u7740\u3002\u4f60\u7684\u7b2c\u4e00\u53cd\u5e94\u662f\uff1f",
-      options: [
-        { text: "\u300c\u5367\u69fd\uff0c\u597d\u795e\u5947\u300d\u2014 \u5f00\u59cb\u7591\u60d1\u8fd9\u5230\u5e95\u662f\u4e0d\u662f\u4e00\u4e2a\u6a21\u62df\u7a0b\u5e8f", scores: [3,0,1,2] },
-        { text: "\u300c\u884c\u5427\u300d\u2014 \u7ffb\u4e2a\u8eab\u7ee7\u7eed\u7761\uff0c\u8fd9\u79cd\u4e8b\u60f3\u591a\u4e86\u4f1a\u79c3\u5934", scores: [0,3,2,0] },
-        { text: "\u300c\u8fd9\u4e2a\u611f\u89c9\u503c\u5f97\u53d1\u6761\u670b\u53cb\u5708\u300d\u2014 \u5df2\u7ecf\u5728\u7f16\u6587\u6848\u4e86", scores: [1,1,0,3] },
-        { text: "\u7a81\u7136\u89c9\u5f97\u5f88\u611f\u52a8\uff0c\u60f3\u7ed9\u67d0\u4e2a\u4eba\u53d1\u6d88\u606f\u8bf4\u201c\u6211\u5f88\u9ad8\u5174\u8ba4\u8bc6\u4f60\u201d", scores: [1,2,3,1] }
-      ]
-    },
-    {
-      text: "\u4f60\u8d70\u5728\u8def\u4e0a\uff0c\u7a81\u7136\u53d1\u73b0\u4e00\u4e2a\u964c\u751f\u4eba\u5728\u5bf9\u4f60\u5fae\u7b11\u3002\u6301\u7eed\u4e86 3 \u79d2\u3002\u4f60\uff1f",
-      options: [
-        { text: "\u7acb\u523b\u56de\u60f3\u81ea\u5df1\u4eca\u5929\u7a7f\u4e86\u4ec0\u4e48\u3001\u8138\u4e0a\u662f\u4e0d\u662f\u6709\u4e1c\u897f", scores: [3,0,1,1] },
-        { text: "\u7b11\u56de\u53bb\u3002\u867d\u7136\u4e0d\u77e5\u9053\u4e3a\u556a\uff0c\u4f46\u611f\u89c9\u4eca\u5929\u8fd0\u6c14\u4e0d\u9519", scores: [0,1,3,1] },
-        { text: "\u5047\u88c5\u6ca1\u770b\u89c1\uff0c\u52a0\u5feb\u811a\u6b65\u3002\u793e\u4ea4\u7535\u91cf\u4e0d\u8db3\u4ee5\u5904\u7406\u8fd9\u4e2a", scores: [1,3,0,0] },
-        { text: "\u8111\u8865\u4e86\u4e00\u6574\u4e2a\u300c\u6211\u4eec\u662f\u5931\u6563\u591a\u5e74\u7684\u67d0\u79cd\u5173\u7cfb\u300d\u7684\u6545\u4e8b\u7ebf", scores: [1,0,1,3] }
-      ]
-    },
-    {
-      text: "\u5468\u4e94\u4e0b\u73ed\uff0c\u6ca1\u6709\u4efb\u4f55\u5b89\u6392\u3002\u4f60\u7684\u9ed8\u8ba4\u72b6\u6001\u662f\uff1f",
-      options: [
-        { text: "\u7ec8\u4e8e\u53ef\u4ee5\u5b89\u9759\u5730\u60f3\u4e9b\u767d\u5929\u6ca1\u7a7a\u60f3\u7684\u4e8b\u4e86", scores: [3,0,1,1] },
-        { text: "\u762b\u7740\u3002\u4ec0\u4e48\u90fd\u4e0d\u60f3\u505a\uff0c\u4e5f\u4e0d\u89c9\u5f97\u8fd9\u6709\u4ec0\u4e48\u95ee\u9898", scores: [0,3,1,0] },
-        { text: "\u6709\u70b9\u7a7a\u865a\uff0c\u5f00\u59cb\u7ffb\u804a\u5929\u8bb0\u5f55\u770b\u6709\u6ca1\u6709\u4eba\u53ef\u4ee5\u7ea6", scores: [0,1,3,1] },
-        { text: "\u6253\u5f00\u5907\u5fd8\u5f55\u5199\u70b9\u4ec0\u4e48\uff0c\u6216\u8005\u627e\u90e8\u7535\u5f71 \u2014 \u603b\u4e4b\u8981\u586b\u6ee1\u8fd9\u4e2a\u665a\u4e0a", scores: [1,1,0,3] }
-      ]
-    },
-    {
-      text: "\u4f60\u5728\u4e00\u4e2a\u65e0\u804a\u7684\u996d\u5c40\u4e0a\uff0c\u53d1\u73b0\u624b\u673a\u53ea\u5269 3% \u7684\u7535\u3002\u4f60\uff1f",
-      options: [
-        { text: "\u7126\u8651\u3002\u7acb\u523b\u626b\u89c6\u5168\u573a\u627e\u5145\u7535\u5668\uff0c\u8fd9\u662f\u6700\u4f18\u5148\u7684\u4e8b", scores: [3,0,0,1] },
-        { text: "\u6b63\u597d\uff0c\u6709\u4e86\u4e0d\u770b\u624b\u673a\u7684\u501f\u53e3\u3002\u5b89\u5fc3\u653e\u7a7a\u4e86", scores: [0,3,1,1] },
-        { text: "\u6709\u70b9\u614c\uff0c\u4e07\u4e00\u6709\u4eba\u627e\u6211\u600e\u4e48\u529e\u3002\u5148\u7701\u7535\u522b\u5237\u4e86", scores: [0,1,3,0] },
-        { text: "\u6b7b\u524d\u62cd\u4e00\u5f20\u300c3%\u7535\u91cf\u7684\u754c\u9762\u622a\u56fe\u300d\u53d1\u6761\u670b\u53cb\u5708\uff1a\u300c\u5371\u300d", scores: [1,0,0,3] }
-      ]
-    },
-    {
-      text: "\u4f60\u521a\u5077\u542c\u5230\u4e24\u4e2a\u540c\u4e8b\u5728\u80cc\u540e\u8ba8\u8bba\u4f60\uff0c\u8bf4\u201c\u90a3\u4e2a\u4eba\u631a\u7279\u522b\u7684\u201d\u3002\u4f60\uff1f",
-      options: [
-        { text: "\u5f00\u59cb\u62c6\u89e3\uff1aTA\u4eec\u8bf4\u7684\u201c\u7279\u522b\u201d\u662f\u54ea\u4e2a\u5c42\u9762\uff1f\u8962\u4e49\u8fd8\u662f\u8d2c\u4e49\uff1f", scores: [3,0,1,1] },
-        { text: "\u5185\u5fc3\u6beb\u65e0\u6ce2\u6f9c\uff0c\u522b\u4eba\u7684\u8bc4\u4ef7\u6539\u53d8\u4e0d\u4e86\u6211\u662f\u8c01", scores: [0,3,0,1] },
-        { text: "\u5fc3\u91cc\u4e00\u7d27\uff0c\u5f00\u59cb\u56de\u653e\u6700\u8fd1\u548cTA\u4eec\u7684\u6bcf\u6b21\u4e92\u52a8", scores: [0,1,3,0] },
-        { text: "\u6709\u70b9\u5f97\u610f\u2014\u2014\u7279\u522b\u5c31\u5bf9\u4e86\uff0c\u6211\u53ef\u4e0d\u60f3\u5f53\u666e\u901a\u4eba", scores: [1,1,0,3] }
-      ]
-    },
-    {
-      text: "\u5982\u679c\u4f60\u53ef\u4ee5\u6c38\u4e45\u5220\u9664\u4eba\u751f\u4e2d\u7684\u4e00\u79cd\u611f\u53d7\uff0c\u4f60\u9009\u54ea\u4e2a\uff1f",
-      options: [
-        { text: "\u201c\u660e\u660e\u77e5\u9053\u7b54\u6848\u5374\u505a\u4e0d\u5230\u201d\u7684\u62e7\u5df4\u611f", scores: [3,0,1,1] },
-        { text: "\u201c\u5468\u56f4\u5f88\u70ed\u95f9\u4f46\u6211\u5f88\u5b64\u72ec\u201d\u7684\u758f\u79bb\u611f", scores: [1,1,3,1] },
-        { text: "\u4ec0\u4e48\u90fd\u4e0d\u5220\uff0c\u8fd9\u4e9b\u90fd\u662f\u6211\u7684\u4e00\u90e8\u5206", scores: [0,3,1,0] },
-        { text: "\u201c\u522b\u4eba\u5728\u8fc7\u6211\u60f3\u8981\u7684\u751f\u6d3b\u201d\u7684\u7126\u8651\u611f", scores: [1,0,0,3] }
-      ]
-    },
-    {
-      text: "\u4f60\u53d1\u73b0\u4e00\u4e2a\u5f88\u4e45\u6ca1\u8054\u7cfb\u7684\u670b\u53cb\u5220\u4e86\u4f60\u7684\u5fae\u4fe1\u3002\u4f60\uff1f",
-      options: [
-        { text: "\u6709\u70b9\u4e0d\u723d\uff0c\u60f3\u627e TA \u95ee\u6e05\u695a\u4e3a\u4ec0\u4e48", scores: [1,0,3,2] },
-        { text: "\u5f00\u59cb\u56de\u60f3\u6700\u8fd1\u81ea\u5df1\u505a\u4e86\u4ec0\u4e48\uff0c\u662f\u4e0d\u662f\u54ea\u91cc\u5f97\u7f6a\u4e86 TA", scores: [3,0,1,0] },
-        { text: "\u6ca1\u4ec0\u4e48\u611f\u89c9\u3002\u4eba\u6765\u4eba\u5f80\u5f88\u6b63\u5e38", scores: [0,3,0,1] },
-        { text: "\u6709\u70b9\u5931\u843d\uff0c\u4e0d\u4f1a\u53bb\u95ee\uff0c\u4f46\u5fc3\u91cc\u4f1a\u60f3\u4e00\u9635\u5b50", scores: [0,1,2,1] }
-      ]
-    },
-    {
-      text: "\u4ee5\u4e0b\u56db\u79cd\u751f\u6d3b\uff0c\u54ea\u79cd\u4f60\u6700\u201c\u53d7\u4e0d\u4e86\u201d\uff1f",
-      options: [
-        { text: "\u6bcf\u5929\u7684\u65e5\u7a0b\u88ab\u5b8c\u5168\u5b89\u6392\u597d\uff0c\u7cbe\u786e\u5230\u5c0f\u65f6\uff0c\u4e0d\u80fd\u6539", scores: [0,2,1,3] },
-        { text: "\u6c38\u8fdc\u4e0d\u80fd\u72ec\u5904\uff0c\u968f\u65f6\u90fd\u6709\u4eba\u5728\u65c1\u8fb9", scores: [2,3,0,1] },
-        { text: "\u4e0d\u5141\u8bb8\u8bb0\u5f55\u4efb\u4f55\u4e1c\u897f \u2014 \u4e0d\u80fd\u5199\u5b57\u3001\u62cd\u7167\u3001\u53d1\u670b\u53cb\u5708", scores: [1,1,1,3] },
-        { text: "\u6240\u6709\u4eba\u90fd\u5bf9\u4f60\u7edd\u5bf9\u8bda\u5b9e\uff0c\u6c38\u8fdc\u4e0d\u4f1a\u5bf9\u4f60\u5ba2\u5957\u6216\u59d4\u5a49", scores: [0,1,3,0] }
-      ]
-    },
-    {
-      text: "\u4ee5\u4e0b\u54ea\u79cd\u60c5\u51b5\u4f1a\u8ba9\u4f60\u4ea7\u751f\u4e00\u79cd\u8bf4\u4e0d\u6e05\u7684\u4e0d\u9002\u611f\uff1f",
-      options: [
-        { text: "\u540c\u5b66\u805a\u4f1a\u4e0a\u6240\u6709\u4eba\u90fd\u5728\u804a\u623f\u8d37\u548c\u5b69\u5b50\uff0c\u6c14\u6c1b\u5f88\u878d\u6d3d", scores: [2,2,0,3] },
-        { text: "\u4f60\u53d1\u4e86\u4e00\u6761\u5f88\u7528\u5fc3\u7684\u670b\u53cb\u5708\uff0c\u4e24\u5c0f\u65f6\u4e86\u53ea\u6709 3 \u4e2a\u8d5e", scores: [1,0,3,2] },
-        { text: "\u505a\u4e86\u4e00\u4e2a\u5f88\u771f\u5b9e\u7684\u68a6\uff0c\u9192\u6765\u540e\u82b1\u4e86 10 \u79d2\u624d\u786e\u8ba4\u54ea\u8fb9\u662f\u73b0\u5b9e", scores: [3,1,1,1] },
-        { text: "\u67d0\u5929\u7a81\u7136\u610f\u8bc6\u5230\u7236\u6bcd\u5df2\u7ecf\u5f00\u59cb\u7528\u4f60\u6559\u4ed6\u4eec\u7684\u65b9\u5f0f\u8ddf\u4f60\u8bf4\u8bdd\u4e86", scores: [1,1,3,1] }
-      ]
-    },
-    {
-      text: "\u4e00\u4e2a\u5168\u77e5\u5168\u80fd\u7684\u5b58\u5728\u7ed9\u4f60\u4e00\u6b21\u673a\u4f1a\uff1a\u53ef\u4ee5\u77e5\u9053\u5173\u4e8e\u81ea\u5df1\u7684\u4e00\u4e2a\u7ec8\u6781\u771f\u76f8\u3002\u4f60\u95ee\u4ec0\u4e48\uff1f",
-      options: [
-        { text: "\u300c\u6211\u8fd9\u8f29\u5b50\u505a\u8fc7\u7684\u6700\u6b63\u786e\u7684\u51b3\u5b9a\u662f\u54ea\u4e2a\uff1f\u300d", scores: [1,2,2,1] },
-        { text: "\u300c\u522b\u4eba\u771f\u6b63\u600e\u4e48\u770b\u6211\uff1f\u300d", scores: [1,0,3,2] },
-        { text: "\u300c\u6211\u8fd8\u6ca1\u53d1\u73b0\u7684\u3001\u6700\u5927\u7684\u6f5c\u529b\u662f\u4ec0\u4e48\uff1f\u300d", scores: [2,1,0,3] },
-        { text: "\u300c\u6211\u6b63\u5728\u56e0\u4e3a\u4ec0\u4e48\u800c\u6d6a\u8d39\u751f\u547d\uff1f\u300d", scores: [3,1,1,1] }
-      ]
-    },
-    {
-      text: "\u4f60\u6b7b\u540e\uff0c\u4f60\u7684\u9b3c\u9b42\u53ef\u4ee5\u5728\u4e00\u4e2a\u5730\u65b9\u6c38\u8fdc\u98d8\u8361\u3002\u4f60\u9009\uff1f",
-      options: [
-        { text: "\u4e00\u4e2a\u5de8\u5927\u7684\u56fe\u4e66\u9986\uff0c\u4e66\u4f1a\u81ea\u52a8\u66f4\u65b0", scores: [3,1,0,1] },
-        { text: "\u4e00\u7247\u6c38\u8fdc\u662f\u9ec4\u660f\u7684\u6d77\u8fb9", scores: [0,3,2,1] },
-        { text: "\u6211\u6d3b\u7740\u65f6\u6700\u5feb\u4e50\u7684\u90a3\u4e2a\u623f\u95f4\u7684\u90a3\u4e2a\u4e0b\u5348", scores: [0,1,3,1] },
-        { text: "\u4e00\u4e2a\u6c38\u8fdc\u70ed\u95f9\u7684\u6df1\u591c\u5c0f\u9152\u9986\uff0c\u4f46\u6ca1\u4eba\u80fd\u770b\u89c1\u6211", scores: [1,1,1,3] }
-      ]
-    },
-    {
-      text: "\u6700\u540e\u4e00\u9898\u3002\u505a\u5b8c\u8fd9\u4e2a\u6d4b\u8bd5\u4f60\u4f1a\uff1f",
-      options: [
-        { text: "\u5f00\u59cb\u7814\u7a76\u5b83\u7684\u5206\u7c7b\u903b\u8f91\u662f\u600e\u4e48\u8bbe\u8ba1\u7684", scores: [3,0,0,1] },
-        { text: "\u770b\u4e00\u773c\u5c31\u5173\u4e86\uff0c\u6d4b\u7740\u73a9\u800c\u5df2", scores: [0,3,1,0] },
-        { text: "\u88ab\u621f\u4e2d\u4e86\u67d0\u53e5\u8bdd\uff0c\u611e\u4e86\u4e00\u4e0b", scores: [0,0,3,1] },
-        { text: "\u622a\u56fe\u53d1\u670b\u53cb\uff0c\u8ba9\u4ed6\u4eec\u4e5f\u6765\u6d4b", scores: [1,1,0,3] }
-      ]
-    }
-  ];
+var types={
+dd:{name:"为什么人",emoji:"🧠",desc:"别人说了句话你能追问到第八层为什么。你不是杠，你是真好奇。你脑子里永远开着十七个标签页。",traits:["万物拆解者","兴趣极广","思维停不下来","天生研究员"],
+guide:"和TA聊天请自备耐心，因为TA会把你一句随口的话拆成五个追问。别觉得TA在抬杠——TA是真的好奇。最好的相处方式：丢给TA一个有趣的问题，然后看TA眼睛亮起来。",
+bestMatch:"vv",bestName:"人间已读",matchWhy:"一个疯狂提问，一个淡定接招。为什么人负责把世界拆开，人间已读负责说「嗯，然后呢」。完美的思维陪练。",
+goodMatch:["dv","dp","ed"],goodNames:["清醒的废物","野生编剧","清醒的眼泪包"]},
 
-  // 维度: [解构欲, 虚无耐受, 情感导电率, 表演欲]
-  var scores = [0, 0, 0, 0];
-  var currentQ = 0;
-  var isAnimating = false;
-  var history = []; // 记录每题选择，用于回退
+dv:{name:"清醒的废物",emoji:"😮‍💨",desc:"你想得比谁都多，但从不因此焦虑。别人问你在想什么，你说「没什么」— 其实刚推导完宇宙的尽头是不是个回收站。",traits:["深夜思考家","旁观型智者","永远在观察","想得多但不累"],
+guide:"TA看起来很懒，但脑子比谁都忙。不要催TA行动——TA在想清楚之前不会动，想清楚之后也不一定动。给TA空间，偶尔问一句「你在想什么」，会收获惊喜。",
+bestMatch:"ep",bestName:"行走的emoji",matchWhy:"一个安静想事，一个大声活着。emoji负责往生活里注入色彩，废物负责在旁边微笑点评。互补到离谱。",
+goodMatch:["dd","ve","vv"],goodNames:["为什么人","已读不回侠","人间已读"]},
 
-  function $(id) { return document.getElementById(id); }
+de:{name:"钝感绝缘体",emoji:"🍭",desc:"你把一段感情分析得明明白白，然后还是栽了进去。你的理性和感性打了一辈子架，你已经习惯当裁判了。",traits:["看穿一切依然心软","带刀的温柔","哭着分析原因","朋友的树洞"],
+guide:"TA是最好的倾诉对象——能共情也能给分析。但别忘了TA也需要被照顾，只是TA不太会主动说。偶尔问一句「你最近怎么样」，TA会很感动。",
+bestMatch:"vp",bestName:"摸鱼冠军",matchWhy:"一个过度分析，一个完全不分析。摸鱼冠军能帮绝缘体放下那些「我是不是应该想清楚再说」的执念。一起躺平的时候最治愈。",
+goodMatch:["ed","ev","dd"],goodNames:["清醒的眼泪包","假冷漠","为什么人"]},
 
-  function startTest() {
-    $('start-screen').classList.add('hidden');
-    $('quiz-screen').classList.remove('hidden');
-    showQuestion();
+dp:{name:"野生编剧",emoji:"🎬",desc:"去趟超市你能讲成公路片。你不是在过日子，你是在给自己的人生攒素材。",traits:["故事制造机","强迫性深度","朋友圈文学家","活在叙事里"],
+guide:"跟TA出去玩一定要带相机。TA会把任何一个普通瞬间赋予意义，让你觉得今天没白活。缺点是TA可能会在你说话时走神——不是不听你说，是在脑子里给你的故事加旁白。",
+bestMatch:"ve",bestName:"已读不回侠",matchWhy:"编剧负责把平淡的日子写成故事，已读不回侠负责当那个「嘴上说无所谓但默默记住每个细节」的忠实读者。",
+goodMatch:["ep","dd","pe"],goodNames:["行走的emoji","为什么人","限定营业"]},
+
+vv:{name:"人间已读",emoji:"🗑️",desc:"你看到了，知道了，不慌不忙。别人觉得你没心没肺，其实你只是纠结的速度太快，快到别人以为你没纠结过。",traits:["天生松弛","不卷也不丧","情绪稳定王","精神内耗免疫"],
+guide:"不要试图让TA激动起来，那是浪费力气。TA的平静不是冷漠，是真的消化得快。最好的相处方式：安静地待在一起，各做各的事。TA是最好的「陪伴型」朋友。",
+bestMatch:"ee",bestName:"人形泪腺",matchWhy:"泪腺负责感受世间万物，人间已读负责在旁边递纸巾和说「没事的」。一个太敏感，一个刚好够钝，加起来正好一个完整的人。",
+goodMatch:["dd","ep","dv"],goodNames:["为什么人","行走的emoji","清醒的废物"]},
+
+vd:{name:"速通王",emoji:"📱",desc:"别人还在第一阶段「纠结」，你已经速通到第五阶段「接受」了。你不是不在乎，你是处理速度太快别人跟不上。",traits:["看穿不戳穿","节能型聪明","不拧巴","低耗能高质量"],
+guide:"跟TA聊心事要做好准备——TA可能三句话就帮你理清了，然后你还没反应过来TA已经在聊下一个话题了。不是不关心，是TA觉得「既然想通了就别耗着了」。",
+bestMatch:"pe",bestName:"限定营业",matchWhy:"速通王提供效率，限定营业提供深度。白天一起高效搞事，深夜各自进入真正的状态。谁也不拖谁的后腿。",
+goodMatch:["vv","de","dp"],goodNames:["人间已读","钝感绝缘体","野生编剧"]},
+
+ve:{name:"已读不回侠",emoji:"⌨️",desc:"你对外的口头禅是「随便」「都行」「无所谓」。你的备忘录里记着谁什么时候对你说过什么话。",traits:["嘴硬心软","外冷内热","偷偷感动型","需要安全感"],
+guide:"TA说「都行」的时候，其实心里有答案。不要真的随便，要学会猜。TA不擅长表达在乎，但如果TA记得你说过的某句话——那就是最大的告白了。",
+bestMatch:"dp",bestName:"野生编剧",matchWhy:"编剧擅长表达，已读不回擅长感受。编剧把TA心里那些说不出口的话写成故事，TA终于觉得被理解了。",
+goodMatch:["dv","ev","ed"],goodNames:["清醒的废物","假冷漠","清醒的眼泪包"]},
+
+vp:{name:"摸鱼冠军",emoji:"🏆",desc:"你在群里最活跃，但私下最懒。你能把摸鱼讲成行为艺术，也能对升职加薪说「看缘分吧」。",traits:["反差魅力","拆台型幽默","内心满不在乎","表面很有事"],
+guide:"不要跟TA讲道理，TA比你更懂道理，只是选择不执行。跟TA在一起最大的好处是——TA能帮你放下焦虑。最大的坏处是——TA可能帮你放下得太彻底了。",
+bestMatch:"de",bestName:"钝感绝缘体",matchWhy:"绝缘体想太多，摸鱼冠军想太少。在一起的时候，绝缘体帮摸鱼冠军提供深度，摸鱼冠军帮绝缘体卸下负担。",
+goodMatch:["vv","ep","pd"],goodNames:["人间已读","行走的emoji","强迫症"]},
+
+ee:{name:"人形泪腺",emoji:"📡",desc:"别人一句随口的话你能想一下午。一首歌一个镜头就能让你红眼眶。你不是矫情，你是信号接收器灵敏度太高了。",traits:["全频段接收","容易被触动","内心丰富","细节控"],
+guide:"请温柔对待TA——不是因为TA脆弱，是因为TA感受到的东西是你的三倍。不要说「你太敏感了」，换成「我理解你的感受」。TA会用十倍的真心回报你。",
+bestMatch:"vv",bestName:"人间已读",matchWhy:"泪腺的情绪暴风雨来了，人间已读是那个不会被吹跑的锚。一个负责感受，一个负责稳住。最安全的组合。",
+goodMatch:["ed","ev","dv"],goodNames:["清醒的眼泪包","假冷漠","清醒的废物"]},
+
+ed:{name:"清醒的眼泪包",emoji:"🩵",desc:"你一边哭一边跟朋友说「我知道我不应该哭但是控制不住」。你连难过都难过得很有逻辑。",traits:["懂很多依然会痛","自我觉察王","别人的避风港","透明却柔软"],
+guide:"TA是那种会一边流泪一边帮你分析问题的人。最需要的不是建议（TA自己比你分析得还透），而是一句「你也可以不坚强」。给TA放下盔甲的机会。",
+bestMatch:"pv",bestName:"隐藏boss",matchWhy:"眼泪包太容易对自己苛刻，隐藏boss刚好示范了「不用那么努力也可以很厉害」这件事。一个学放松，一个被感动。",
+goodMatch:["de","ve","ee"],goodNames:["钝感绝缘体","已读不回侠","人形泪腺"]},
+
+ev:{name:"假冷漠",emoji:"🛋️",desc:"平时觉得自己挺冷酷的，直到看到小猫、夕阳、或者谁突然对你好一下 — 直接破防。破防完三秒恢复佛态。",traits:["感性但不拧巴","情绪来去自由","温柔的力量","内心有底气"],
+guide:"TA不需要你时刻关注，但需要你偶尔戳一下。一条「今天天气不错」的消息，一张猫的照片，就够TA开心很久——虽然TA嘴上可能只回一个「嗯」。",
+bestMatch:"pd",bestName:"强迫症",matchWhy:"假冷漠的随意刚好治强迫症的较真。强迫症在死磕细节的时候，假冷漠一句「差不多就行了」就是救命稻草。",
+goodMatch:["de","ve","vv"],goodNames:["钝感绝缘体","已读不回侠","人间已读"]},
+
+ep:{name:"行走的emoji",emoji:"🎆",desc:"开心的时候全世界都知道，不开心的时候全世界也知道。你的情绪没有静音键，你也不打算装一个。",traits:["音量最大","拒绝假装淡定","感染力满分","情绪自由"],
+guide:"跟TA在一起永远不会无聊，但可能会有点累。TA的快乐是真的快乐，不开心也是真的不开心。最好的做法：开心时跟TA一起嗨，不开心时陪着就好，别讲道理。",
+bestMatch:"dv",bestName:"清醒的废物",matchWhy:"emoji提供能量，废物提供冷静。emoji在嗨的时候，废物在旁边微笑观察；emoji崩溃的时候，废物一句话就能稳住场面。",
+goodMatch:["vp","dp","pp"],goodNames:["摸鱼冠军","野生编剧","下次一定"]},
+
+pp:{name:"下次一定",emoji:"✈️",desc:"你的收藏夹比去过的地方多十倍。你不是拖延，你是在等一个「完美时机」— 虽然你知道它不存在。",traits:["新鲜感驱动","害怕被定义","说走就走","自由大于一切"],
+guide:"不要帮TA做计划，TA会当场答应然后永远不执行。最好的办法：直接拉TA出门，别给TA思考的时间。TA其实什么都想试，只是卡在了「开始」那一步。",
+bestMatch:"dd",bestName:"为什么人",matchWhy:"为什么人提供方向和深度，下次一定提供行动力和新鲜感。一个负责想清楚为什么要去，一个负责说「走！现在就去！」",
+goodMatch:["ep","vp","dp"],goodNames:["行走的emoji","摸鱼冠军","野生编剧"]},
+
+pd:{name:"强迫症",emoji:"📝",desc:"你发条朋友圈要改五遍。不是为了点赞，是你觉得不够精准。你活着的标准就是：要么有质量，要么别浪费时间。",traits:["深度上瘾","高标准","完美主义","追求极致"],
+guide:"TA不是难搞，是标准高。如果TA愿意花时间在你身上，说明你很重要。不要催TA——TA需要按自己的节奏来。偶尔告诉TA「已经很好了」，TA比你想象的更需要这句话。",
+bestMatch:"ev",bestName:"假冷漠",matchWhy:"强迫症在死磕完美的时候，假冷漠那种「随便啦」的态度简直是一股清流。一个负责追求极致，一个负责提醒「人生不用那么累」。",
+goodMatch:["vp","dd","ed"],goodNames:["摸鱼冠军","为什么人","清醒的眼泪包"]},
+
+pv:{name:"隐藏boss",emoji:"👑",desc:"你可以很牛逼，也可以很咸鱼。取决于今天心情。你的实力和你的努力程度永远不匹配，而且你觉得这样挺好。",traits:["随心所欲","有实力但不要强","佛系发光体","反正我开心就行"],
+guide:"别试图激励TA，TA不吃这套。也别嫉妒TA——TA躺着也能赢确实让人生气，但这就是TA。最好的相处方式：欣赏TA偶尔认真时的光芒，其余时间一起躺着。",
+bestMatch:"ed",bestName:"清醒的眼泪包",matchWhy:"眼泪包的认真和隐藏boss的松弛形成奇妙平衡。boss教会泪包「不用那么累」，泪包让boss觉得「认真一下也挺好」。",
+goodMatch:["vv","de","ep"],goodNames:["人间已读","钝感绝缘体","行走的emoji"]},
+
+pe:{name:"限定营业",emoji:"🌙",desc:"白天你可以很正常很social，但真正的你只在深夜上线。你不是社恐，你是对无聊的人过敏。",traits:["选择性发光","独处时充电","怕平庸不怕孤独","内心戏很多"],
+guide:"不要在白天试图跟TA深聊——那是TA的社交模式，不是真正的TA。等到深夜，发一条消息试试。如果TA回了长段语音或者打字打了十分钟——恭喜，你进入了TA的频道。",
+bestMatch:"vd",bestName:"速通王",matchWhy:"限定营业需要一个不会浪费TA时间的人，速通王恰好是效率最高的搭子。白天高效协作，深夜各自精彩。",
+goodMatch:["dp","dv","ve"],goodNames:["野生编剧","清醒的废物","已读不回侠"]}
+};
+
+var scores=[0,0,0,0],currentQ=0,isAnimating=false,history=[];
+function $(id){return document.getElementById(id)}
+
+function startTest(){
+  $('start-screen').classList.add('hidden');
+  $('quiz-screen').classList.remove('hidden');
+  showQuestion();
+}
+function goBack(){
+  if(currentQ<=0||isAnimating)return;
+  isAnimating=true;
+  var last=history.pop();
+  scores[0]-=last.scores[0];scores[1]-=last.scores[1];scores[2]-=last.scores[2];scores[3]-=last.scores[3];
+  currentQ--;
+  setTimeout(function(){isAnimating=false;showQuestion()},100);
+}
+function showQuestion(){
+  var q=questions[currentQ],area=$('question-area');
+  $('progress').style.width=((currentQ/questions.length)*100)+'%';
+  area.innerHTML='';
+  if(currentQ>0){
+    var b=document.createElement('button');b.className='back-btn';b.innerHTML='\u2190 上一题';
+    b.addEventListener('click',function(e){e.preventDefault();goBack()});
+    b.addEventListener('touchend',function(e){e.preventDefault();goBack()});
+    area.appendChild(b);
   }
-
-  function goBack() {
-    if (currentQ <= 0 || isAnimating) return;
-    isAnimating = true;
-    var last = history.pop();
-    // 减去上一题的分数
-    scores[0] -= last.scores[0];
-    scores[1] -= last.scores[1];
-    scores[2] -= last.scores[2];
-    scores[3] -= last.scores[3];
-    currentQ--;
-    setTimeout(function() {
-      isAnimating = false;
-      showQuestion();
-    }, 100);
-  }
-
-  function showQuestion() {
-    var q = questions[currentQ];
-    var area = $('question-area');
-    $('progress').style.width = ((currentQ / questions.length) * 100) + '%';
-
-    area.innerHTML = '';
-
-    // 返回按钮（第一题不显示）
-    if (currentQ > 0) {
-      var backBtn = document.createElement('button');
-      backBtn.className = 'back-btn';
-      backBtn.innerHTML = '\u2190 \u4e0a\u4e00\u9898';
-      backBtn.addEventListener('click', function(e) { e.preventDefault(); goBack(); });
-      backBtn.addEventListener('touchend', function(e) { e.preventDefault(); goBack(); });
-      area.appendChild(backBtn);
-    }
-
-    var card = document.createElement('div');
-    card.className = 'question-card';
-    card.innerHTML = '<div class="q-number">\u95ee\u9898 ' + (currentQ + 1) + ' / ' + questions.length + '</div>' +
-      '<div class="q-text">' + q.text + '</div>' +
-      '<div class="options" id="opts"></div>';
-    area.appendChild(card);
-
-    var optsDiv = card.querySelector('#opts');
-    q.options.forEach(function(opt, i) {
-      var div = document.createElement('div');
-      div.className = 'option';
-      div.textContent = opt.text;
-      div.setAttribute('data-idx', i);
-      div.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (isAnimating) return;
-        selectOption(i, div);
-      });
-      div.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (isAnimating) return;
-        selectOption(i, div);
-      });
-      optsDiv.appendChild(div);
-    });
-
-    isAnimating = false;
-  }
-
-  function selectOption(idx, el) {
-    if (isAnimating) return;
-    isAnimating = true;
-
-    if (el) el.classList.add('tapped');
-
-    var q = questions[currentQ];
-    var s = q.options[idx].scores;
-    scores[0] += s[0];
-    scores[1] += s[1];
-    scores[2] += s[2];
-    scores[3] += s[3];
-
-    // 记录到历史
-    history.push({ qIdx: currentQ, optIdx: idx, scores: s });
-    currentQ++;
-
-    setTimeout(function() {
-      if (currentQ >= questions.length) {
-        showResult();
-      } else {
-        showQuestion();
-      }
-    }, 200);
-  }
-
-  function showResult() {
-    $('quiz-screen').classList.add('hidden');
-    $('result-screen').classList.remove('hidden');
-    $('progress').style.width = '100%';
-
-    var maxScore = 36;
-    var pcts = scores.map(function(s) { return Math.round((s / maxScore) * 100); });
-    var t = getType(pcts);
-
-    $('result-screen').innerHTML =
-      '<h1>\ud83c\udf00 \u4f60\u7684\u7075\u9b42\u89e3\u5256\u62a5\u544a</h1>' +
-      '<div class="result-type">' +
-        '<div style="font-size:0.5em;color:#888;margin-bottom:8px">\u4f60\u662f</div>' +
-        t.emoji + '<br>' +
-        '<div style="font-size:0.6em;margin-top:8px">' + t.name + '</div>' +
-      '</div>' +
-      '<div class="result-desc">' + t.desc + '</div>' +
-      '<div class="result-traits">' + t.traits.map(function(x) { return '<span class="trait-tag">' + x + '</span>'; }).join('') + '</div>' +
-      '<div class="dimensions">' +
-        '<div style="color:#fff;margin-bottom:16px;font-size:0.95em">\ud83e\uddec \u4f60\u7684\u56db\u7ef4\u7075\u9b42\u5149\u8c31</div>' +
-        dimHTML('\ud83d\udd2c \u89e3\u6784\u6b32\uff08\u60f3\u628a\u4e00\u5207\u62c6\u5f00\u770b\u770b\uff09', pcts[0], '#ff6b6b', '#feca57') +
-        dimHTML('\ud83d\udd73\ufe0f \u865a\u65e0\u8010\u53d7\u529b\uff08\u8ddf\u7a7a\u6d1e\u5171\u5904\u7684\u80fd\u529b\uff09', pcts[1], '#a29bfe', '#6c5ce7') +
-        dimHTML('\u26a1 \u60c5\u611f\u5bfc\u7535\u7387\uff08\u5bf9\u60c5\u7eea\u523a\u6fc0\u7684\u654f\u611f\u5ea6\uff09', pcts[2], '#55efc4', '#00cec9') +
-        dimHTML('\ud83c\udfad \u8868\u6f14\u6b32\uff08\u628a\u751f\u6d3b\u53d8\u6210\u53d9\u4e8b\u7684\u51b2\u52a8\uff09', pcts[3], '#fd79a8', '#e84393') +
-      '</div>' +
-      '<div class="share-tip">\ud83d\udca1 \u628a\u8fd9\u4e2a\u94fe\u63a5\u53d1\u7ed9\u670b\u53cb\uff0c\u8ba9\u4ed6\u4eec\u4e5f\u6765\u6d4b\u6d4b\u81ea\u5df1\u662f\u4ec0\u4e48\u4e1c\u897f\uff5e</div>' +
-      '<p style="color:#666;font-size:0.8em;margin-top:20px">\u00a9 2026 \u6d85\u5c0f\u708e | \u7075\u9b42\u8352\u8bde\u6307\u6570\u6d4b\u8bd5</p>' +
-      '<button class="btn" id="retryBtn">\u518d\u6d4b\u4e00\u6b21</button>';
-
-    $('retryBtn').addEventListener('click', function() { location.reload(); });
-    $('retryBtn').addEventListener('touchend', function(e) { e.preventDefault(); location.reload(); });
-  }
-
-  function dimHTML(label, pct, c1, c2) {
-    return '<div class="dim-item">' +
-      '<div class="dim-label"><span>' + label + '</span><span>' + pct + '%</span></div>' +
-      '<div class="dim-bar"><div class="dim-fill" style="width:' + pct + '%;background:linear-gradient(90deg,' + c1 + ',' + c2 + ')"></div></div>' +
-      '</div>';
-  }
-
-  function getType(pcts) {
-    var d = pcts[0], v = pcts[1], e = pcts[2], p = pcts[3];
-    var total = d + v + e + p;
-    var dims = [{n:'d',v:d},{n:'v',v:v},{n:'e',v:e},{n:'p',v:p}];
-    dims.sort(function(a,b) { return b.v - a.v; });
-    var topRatio = dims[0].v / (total || 1);
-    var key = topRatio > 0.35 ? dims[0].n + dims[0].n : dims[0].n + dims[1].n;
-
-    var types = {
-      'dv': { name: "\u6e05\u9192\u7684\u5e9f\u7269", emoji: "\ud83d\ude2e\u200d\ud83d\udca8", desc: "\u4f60\u60f3\u5f97\u6bd4\u8c01\u90fd\u591a\uff0c\u4f46\u4ece\u4e0d\u56e0\u6b64\u7126\u8651\u3002\u522b\u4eba\u95ee\u4f60\u5728\u60f3\u4ec0\u4e48\uff0c\u4f60\u8bf4\u300c\u6ca1\u4ec0\u4e48\u300d\u2014 \u5176\u5b9e\u521a\u63a8\u5bfc\u5b8c\u5b87\u5b99\u7684\u5c3d\u5934\u662f\u4e0d\u662f\u4e2a\u56de\u6536\u7ad9\u3002", traits: ["\u6df1\u591c\u601d\u8003\u5bb6", "\u65c1\u89c2\u578b\u667a\u8005", "\u6c38\u8fdc\u5728\u89c2\u5bdf", "\u60f3\u5f97\u591a\u4f46\u4e0d\u7d2f"] },
-      'de': { name: "\u949d\u611f\u7edd\u7f18\u4f53", emoji: "\ud83c\udf6d", desc: "\u4f60\u628a\u4e00\u6bb5\u611f\u60c5\u5206\u6790\u5f97\u660e\u660e\u767d\u767d\uff0c\u7136\u540e\u8fd8\u662f\u683d\u4e86\u8fdb\u53bb\u3002\u4f60\u7684\u7406\u6027\u548c\u611f\u6027\u6253\u4e86\u4e00\u8f88\u5b50\u67b6\uff0c\u4f60\u5df2\u7ecf\u4e60\u60ef\u5f53\u88c1\u5224\u4e86\u3002", traits: ["\u770b\u7a7f\u4e00\u5207\u4f9d\u7136\u5fc3\u8f6f", "\u5e26\u5200\u7684\u6e29\u67d4", "\u54ed\u7740\u5206\u6790\u539f\u56e0", "\u670b\u53cb\u7684\u6811\u6d1e"] },
-      'dp': { name: "\u91ce\u751f\u7f16\u5267", emoji: "\ud83c\udfac", desc: "\u53bb\u8d9f\u8d85\u5e02\u4f60\u80fd\u8bb2\u6210\u516c\u8def\u7247\u3002\u4f60\u4e0d\u662f\u5728\u8fc7\u65e5\u5b50\uff0c\u4f60\u662f\u5728\u7ed9\u81ea\u5df1\u7684\u4eba\u751f\u6512\u7d20\u6750\u3002", traits: ["\u6545\u4e8b\u5236\u9020\u673a", "\u5f3a\u8feb\u6027\u6df1\u5ea6", "\u670b\u53cb\u5708\u6587\u5b66\u5bb6", "\u6d3b\u5728\u53d9\u4e8b\u91cc"] },
-      'dd': { name: "\u4e3a\u4ec0\u4e48\u4eba", emoji: "\ud83e\udde0", desc: "\u522b\u4eba\u8bf4\u4e86\u53e5\u8bdd\u4f60\u80fd\u8ffd\u95ee\u5230\u7b2c\u516b\u5c42\u4e3a\u4ec0\u4e48\u3002\u4f60\u4e0d\u662f\u6760\uff0c\u4f60\u662f\u771f\u597d\u5947\u3002\u4f60\u8111\u5b50\u91cc\u6c38\u8fdc\u5f00\u7740\u5341\u4e03\u4e2a\u6807\u7b7e\u9875\u3002", traits: ["\u4e07\u7269\u62c6\u89e3\u8005", "\u5174\u8da3\u6781\u5e7f", "\u601d\u7ef4\u505c\u4e0d\u4e0b\u6765", "\u5929\u751f\u7814\u7a76\u5458"] },
-      'vd': { name: "\u901f\u901a\u738b", emoji: "\ud83d\udcf1", desc: "\u522b\u4eba\u8fd8\u5728\u7b2c\u4e00\u9636\u6bb5\u300c\u7ea0\u7ed3\u300d\uff0c\u4f60\u5df2\u7ecf\u901f\u901a\u5230\u7b2c\u4e94\u9636\u6bb5\u300c\u63a5\u53d7\u300d\u4e86\u3002\u4f60\u4e0d\u662f\u4e0d\u5728\u4e4e\uff0c\u4f60\u662f\u5904\u7406\u901f\u5ea6\u592a\u5feb\u522b\u4eba\u8ddf\u4e0d\u4e0a\u3002", traits: ["\u770b\u7a7f\u4e0d\u6233\u7a7f", "\u8282\u80fd\u578b\u806a\u660e", "\u4e0d\u62e7\u5df4", "\u4f4e\u8017\u80fd\u9ad8\u8d28\u91cf"] },
-      've': { name: "\u5df2\u8bfb\u4e0d\u56de\u4fa0", emoji: "\u2328\ufe0f", desc: "\u4f60\u5bf9\u5916\u7684\u53e3\u5934\u7985\u662f\u300c\u968f\u4fbf\u300d\u300c\u90fd\u884c\u300d\u300c\u65e0\u6240\u8c13\u300d\u3002\u4f60\u7684\u5907\u5fd8\u5f55\u91cc\u8bb0\u7740\u8c01\u4ec0\u4e48\u65f6\u5019\u5bf9\u4f60\u8bf4\u8fc7\u4ec0\u4e48\u8bdd\u3002", traits: ["\u5634\u786c\u5fc3\u8f6f", "\u5916\u51b7\u5185\u70ed", "\u5077\u5077\u611f\u52a8\u578b", "\u9700\u8981\u5b89\u5168\u611f"] },
-      'vp': { name: "\u6478\u9c7c\u51a0\u519b", emoji: "\ud83c\udfc6", desc: "\u4f60\u5728\u7fa4\u91cc\u6700\u6d3b\u8dc3\uff0c\u4f46\u79c1\u4e0b\u6700\u61d2\u3002\u4f60\u80fd\u628a\u6478\u9c7c\u8bb2\u6210\u884c\u4e3a\u827a\u672f\uff0c\u4e5f\u80fd\u5bf9\u5347\u804c\u52a0\u85aa\u8bf4\u300c\u770b\u7f18\u5206\u5427\u300d\u3002", traits: ["\u53cd\u5dee\u9b45\u529b", "\u62c6\u53f0\u578b\u5e7d\u9ed8", "\u5185\u5fc3\u6ee1\u4e0d\u5728\u4e4e", "\u8868\u9762\u5f88\u6709\u4e8b"] },
-      'vv': { name: "\u4eba\u95f4\u5df2\u8bfb", emoji: "\ud83d\uddd1\ufe0f", desc: "\u4f60\u770b\u5230\u4e86\uff0c\u77e5\u9053\u4e86\uff0c\u4e0d\u614c\u4e0d\u5fd9\u3002\u522b\u4eba\u89c9\u5f97\u4f60\u6ca1\u5fc3\u6ca1\u80ba\uff0c\u5176\u5b9e\u4f60\u53ea\u662f\u7ea0\u7ed3\u7684\u901f\u5ea6\u592a\u5feb\uff0c\u5feb\u5230\u522b\u4eba\u4ee5\u4e3a\u4f60\u6ca1\u7ea0\u7ed3\u8fc7\u3002", traits: ["\u5929\u751f\u677e\u5f1b", "\u4e0d\u5377\u4e5f\u4e0d\u4e27", "\u60c5\u7eea\u7a33\u5b9a\u738b", "\u7cbe\u795e\u5185\u8017\u514d\u75ab"] },
-      'ed': { name: "\u6e05\u9192\u7684\u773c\u6cea\u5305", emoji: "\ud83e\ude75", desc: "\u4f60\u4e00\u8fb9\u54ed\u4e00\u8fb9\u8ddf\u670b\u53cb\u8bf4\u300c\u6211\u77e5\u9053\u6211\u4e0d\u5e94\u8be5\u54ed\u4f46\u662f\u63a7\u5236\u4e0d\u4f4f\u300d\u3002\u4f60\u8fde\u96be\u8fc7\u90fd\u96be\u8fc7\u5f97\u5f88\u6709\u903b\u8f91\u3002", traits: ["\u61c2\u5f88\u591a\u4f9d\u7136\u4f1a\u75db", "\u81ea\u6211\u89c9\u5bdf\u738b", "\u522b\u4eba\u7684\u907f\u98ce\u6e2f", "\u900f\u660e\u5374\u67d4\u8f6f"] },
-      'ev': { name: "\u5047\u51b7\u6f20", emoji: "\ud83d\udecb\ufe0f", desc: "\u5e73\u65f6\u89c9\u5f97\u81ea\u5df1\u633a\u51b7\u9177\u7684\uff0c\u76f4\u5230\u770b\u5230\u5c0f\u732b\u3001\u5915\u9633\u3001\u6216\u8005\u8c01\u7a81\u7136\u5bf9\u4f60\u597d\u4e00\u4e0b \u2014 \u76f4\u63a5\u7834\u9632\u3002\u7834\u9632\u5b8c\u4e09\u79d2\u6062\u590d\u4f5b\u6001\u3002", traits: ["\u611f\u6027\u4f46\u4e0d\u62e7\u5df4", "\u60c5\u7eea\u6765\u53bb\u81ea\u7531", "\u6e29\u67d4\u7684\u529b\u91cf", "\u5185\u5fc3\u6709\u5e95\u6c14"] },
-      'ep': { name: "\u884c\u8d70\u7684emoji", emoji: "\ud83c\udf86", desc: "\u5f00\u5fc3\u7684\u65f6\u5019\u5168\u4e16\u754c\u90fd\u77e5\u9053\uff0c\u4e0d\u5f00\u5fc3\u7684\u65f6\u5019\u5168\u4e16\u754c\u4e5f\u77e5\u9053\u3002\u4f60\u7684\u60c5\u7eea\u6ca1\u6709\u9759\u97f3\u952e\uff0c\u4f60\u4e5f\u4e0d\u6253\u7b97\u88c5\u4e00\u4e2a\u3002", traits: ["\u97f3\u91cf\u6700\u5927", "\u62d2\u7edd\u5047\u88c5\u6de1\u5b9a", "\u611f\u67d3\u529b\u6ee1\u5206", "\u60c5\u7eea\u81ea\u7531"] },
-      'ee': { name: "\u4eba\u5f62\u6cea\u817a", emoji: "\ud83d\udce1", desc: "\u522b\u4eba\u4e00\u53e5\u968f\u53e3\u7684\u8bdd\u4f60\u80fd\u60f3\u4e00\u4e0b\u5348\u3002\u4e00\u9996\u6b4c\u4e00\u4e2a\u955c\u5934\u5c31\u80fd\u8ba9\u4f60\u7ea2\u773c\u7736\u3002\u4f60\u4e0d\u662f\u77eb\u60c5\uff0c\u4f60\u662f\u4fe1\u53f7\u63a5\u6536\u5668\u7075\u654f\u5ea6\u592a\u9ad8\u4e86\u3002", traits: ["\u5168\u9891\u6bb5\u63a5\u6536", "\u5bb9\u6613\u88ab\u89e6\u52a8", "\u5185\u5fc3\u4e30\u5bcc", "\u7ec6\u8282\u63a7"] },
-      'pd': { name: "\u5f3a\u8feb\u75c7", emoji: "\ud83d\udcdd", desc: "\u4f60\u53d1\u6761\u670b\u53cb\u5708\u8981\u6539\u4e94\u904d\u3002\u4e0d\u662f\u4e3a\u4e86\u70b9\u8d5e\uff0c\u662f\u4f60\u89c9\u5f97\u4e0d\u591f\u7cbe\u51c6\u3002\u4f60\u6d3b\u7740\u7684\u6807\u51c6\u5c31\u662f\uff1a\u8981\u4e48\u6709\u8d28\u91cf\uff0c\u8981\u4e48\u522b\u6d6a\u8d39\u65f6\u95f4\u3002", traits: ["\u6df1\u5ea6\u4e0a\u763e", "\u9ad8\u6807\u51c6", "\u5b8c\u7f8e\u4e3b\u4e49", "\u8ffd\u6c42\u6781\u81f4"] },
-      'pv': { name: "\u9690\u85cfboss", emoji: "\ud83d\udc51", desc: "\u4f60\u53ef\u4ee5\u5f88\u725b\u903c\uff0c\u4e5f\u53ef\u4ee5\u5f88\u54b8\u9c7c\u3002\u53d6\u51b3\u4e8e\u4eca\u5929\u5fc3\u60c5\u3002\u4f60\u7684\u5b9e\u529b\u548c\u4f60\u7684\u52aa\u529b\u7a0b\u5ea6\u6c38\u8fdc\u4e0d\u5339\u914d\uff0c\u800c\u4e14\u4f60\u89c9\u5f97\u8fd9\u6837\u633a\u597d\u3002", traits: ["\u968f\u5fc3\u6240\u6b32", "\u6709\u5b9e\u529b\u4f46\u4e0d\u8981\u5f3a", "\u4f5b\u7cfb\u53d1\u5149\u4f53", "\u53cd\u6b63\u6211\u5f00\u5fc3\u5c31\u884c"] },
-      'pe': { name: "\u9650\u5b9a\u8425\u4e1a", emoji: "\ud83c\udf19", desc: "\u767d\u5929\u4f60\u53ef\u4ee5\u5f88\u6b63\u5e38\u5f88social\uff0c\u4f46\u771f\u6b63\u7684\u4f60\u53ea\u5728\u6df1\u591c\u4e0a\u7ebf\u3002\u4f60\u4e0d\u662f\u793e\u6050\uff0c\u4f60\u662f\u5bf9\u65e0\u804a\u7684\u4eba\u8fc7\u654f\u3002", traits: ["\u9009\u62e9\u6027\u53d1\u5149", "\u72ec\u5904\u65f6\u5145\u7535", "\u6015\u5e73\u5eb8\u4e0d\u6015\u5b64\u72ec", "\u5185\u5fc3\u620f\u5f88\u591a"] },
-      'pp': { name: "\u4e0b\u6b21\u4e00\u5b9a", emoji: "\u2708\ufe0f", desc: "\u4f60\u7684\u6536\u85cf\u5939\u6bd4\u53bb\u8fc7\u7684\u5730\u65b9\u591a\u5341\u500d\u3002\u4f60\u4e0d\u662f\u62d6\u5ef6\uff0c\u4f60\u662f\u5728\u7b49\u4e00\u4e2a\u300c\u5b8c\u7f8e\u65f6\u673a\u300d\u2014 \u867d\u7136\u4f60\u77e5\u9053\u5b83\u4e0d\u5b58\u5728\u3002", traits: ["\u65b0\u9c9c\u611f\u9a71\u52a8", "\u5bb3\u6015\u88ab\u5b9a\u4e49", "\u8bf4\u8d70\u5c31\u8d70", "\u81ea\u7531\u5927\u4e8e\u4e00\u5207"] }
-    };
-
-    return types[key] || types['dd'];
-  }
-
-  // Init
-  $('startBtn').addEventListener('click', function(e) { e.preventDefault(); startTest(); });
-  $('startBtn').addEventListener('touchend', function(e) { e.preventDefault(); startTest(); });
-
+  var card=document.createElement('div');card.className='question-card';
+  card.innerHTML='<div class="q-number">问题 '+(currentQ+1)+' / '+questions.length+'</div><div class="q-text">'+q.text+'</div><div class="options" id="opts"></div>';
+  area.appendChild(card);
+  var optsDiv=card.querySelector('#opts');
+  q.options.forEach(function(opt,i){
+    var div=document.createElement('div');div.className='option';div.textContent=opt.text;
+    function handler(e){e.preventDefault();e.stopPropagation();if(isAnimating)return;selectOption(i,div)}
+    div.addEventListener('click',handler);div.addEventListener('touchend',handler);
+    optsDiv.appendChild(div);
+  });
+  isAnimating=false;
+}
+function selectOption(idx,el){
+  if(isAnimating)return;isAnimating=true;
+  if(el)el.classList.add('tapped');
+  var q=questions[currentQ],s=q.options[idx].scores;
+  scores[0]+=s[0];scores[1]+=s[1];scores[2]+=s[2];scores[3]+=s[3];
+  history.push({qIdx:currentQ,optIdx:idx,scores:s});currentQ++;
+  setTimeout(function(){currentQ>=questions.length?showResult():showQuestion()},200);
+}
+function showResult(){
+  $('quiz-screen').classList.add('hidden');
+  $('result-screen').classList.remove('hidden');
+  $('progress').style.width='100%';
+  var maxScore=36,pcts=scores.map(function(s){return Math.round((s/maxScore)*100)});
+  var t=getType(pcts);
+  var html='<h1>🌀 你的灵魂解剖报告</h1>'+
+    '<div class="result-type"><div style="font-size:.5em;color:#888;margin-bottom:8px">你是</div>'+t.emoji+'<br><div style="font-size:.6em;margin-top:8px">'+t.name+'</div></div>'+
+    '<div class="result-desc">'+t.desc+'</div>'+
+    '<div class="result-traits">'+t.traits.map(function(x){return'<span class="trait-tag">'+x+'</span>'}).join('')+'</div>'+
+    '<div class="dimensions"><div style="color:#fff;margin-bottom:16px;font-size:.95em">🧬 你的四维灵魂光谱</div>'+
+    dimHTML('🔬 解构欲（想把一切拆开看看）',pcts[0],'#ff6b6b','#feca57')+
+    dimHTML('🕳️ 虚无耐受力（跟空洞共处的能力）',pcts[1],'#a29bfe','#6c5ce7')+
+    dimHTML('⚡ 情感导电率（对情绪刺激的敏感度）',pcts[2],'#55efc4','#00cec9')+
+    dimHTML('🎭 表演欲（把生活变成叙事的冲动）',pcts[3],'#fd79a8','#e84393')+
+    '</div>'+
+    '<div class="guide-section"><div class="guide-title">📖 相处指南</div><div class="guide-text">'+t.guide+'</div></div>'+
+    '<div class="match-section"><div class="guide-title">🔗 你的灵魂搭子</div>'+
+    '<div class="match-item"><div class="match-type">'+types[t.bestMatch].emoji+' '+t.bestName+' <span class="match-tag">最佳搭子</span></div><div class="match-reason">'+t.matchWhy+'</div></div>'+
+    t.goodMatch.map(function(k,i){return'<div class="match-item"><div class="match-type">'+types[k].emoji+' '+t.goodNames[i]+' <span class="match-tag">也很搭</span></div></div>'}).join('')+
+    '</div>'+
+    '<div class="share-tip">💡 把这个链接发给朋友，看看你们是不是灵魂搭子～</div>'+
+    '<p style="color:#666;font-size:.8em;margin-top:20px">© 2026 涅小炎 | 灵魂荒诞指数测试</p>'+
+    '<button class="btn" id="retryBtn">再测一次</button>';
+  $('result-screen').innerHTML=html;
+  $('retryBtn').addEventListener('click',function(){location.reload()});
+  $('retryBtn').addEventListener('touchend',function(e){e.preventDefault();location.reload()});
+}
+function dimHTML(label,pct,c1,c2){
+  return'<div class="dim-item"><div class="dim-label"><span>'+label+'</span><span>'+pct+'%</span></div><div class="dim-bar"><div class="dim-fill" style="width:'+pct+'%;background:linear-gradient(90deg,'+c1+','+c2+')"></div></div></div>';
+}
+function getType(pcts){
+  var d=pcts[0],v=pcts[1],e=pcts[2],p=pcts[3],total=d+v+e+p;
+  var dims=[{n:'d',v:d},{n:'v',v:v},{n:'e',v:e},{n:'p',v:p}];
+  dims.sort(function(a,b){return b.v-a.v});
+  var topRatio=dims[0].v/(total||1);
+  var key=topRatio>0.35?dims[0].n+dims[0].n:dims[0].n+dims[1].n;
+  var t=types[key]||types['dd'];
+  t.bestMatch=t.bestMatch||'dd';t.bestName=t.bestName||'为什么人';t.matchWhy=t.matchWhy||'';
+  t.goodMatch=t.goodMatch||[];t.goodNames=t.goodNames||[];
+  return t;
+}
+$('startBtn').addEventListener('click',function(e){e.preventDefault();startTest()});
+$('startBtn').addEventListener('touchend',function(e){e.preventDefault();startTest()});
 })();
 </script>
 </body>
