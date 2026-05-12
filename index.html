@@ -300,8 +300,8 @@ function showResult(){
   $('result-screen').innerHTML=html;
   $('retryBtn').addEventListener('click',function(){location.reload()});
   $('retryBtn').addEventListener('touchend',function(e){e.preventDefault();location.reload()});
-  // Render QR code
-  try{var qrC=$('qrCanvas');if(qrC&&window._makeQR){window._makeQR(window.location.href.split('?')[0],qrC,3)}}catch(e){}
+  // Render QR code (delayed, non-blocking)
+  setTimeout(function(){try{var qrC=$('qrCanvas');if(qrC&&window._makeQR){window._makeQR(window.location.href.split('?')[0],qrC)}}catch(e){}},500);
 }
 function dimHTML(label,pct,c1,c2){
   return'<div class="dim-item"><div class="dim-label"><span>'+label+'</span><span>'+pct+'%</span></div><div class="dim-bar"><div class="dim-fill" style="width:'+pct+'%;background:linear-gradient(90deg,'+c1+','+c2+')"></div></div></div>';
@@ -321,8 +321,28 @@ $('startBtn').addEventListener('click',function(e){e.preventDefault();startTest(
 $('startBtn').addEventListener('touchend',function(e){e.preventDefault();startTest()});
 })();
 
-// QR Code: load from CDN
-(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';s.onload=function(){window._makeQR=function(text,canvas,cellSize){cellSize=cellSize||3;try{var qr=qrcode(0,'M');qr.addData(text);qr.make();var cnt=qr.getModuleCount();var sz=(cnt+2)*cellSize;canvas.width=sz;canvas.height=sz;var ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,sz,sz);ctx.fillStyle='#000';for(var r=0;r<cnt;r++)for(var c=0;c<cnt;c++)if(qr.isDark(r,c))ctx.fillRect((c+1)*cellSize,(r+1)*cellSize,cellSize,cellSize)}catch(e){}};};document.head.appendChild(s)})();
+// QR Code via API image (no external JS needed)
+window._makeQR=function(text,canvas){
+  try{
+    var img=new Image();
+    img.crossOrigin='anonymous';
+    img.onload=function(){
+      canvas.width=160;canvas.height=160;
+      var ctx=canvas.getContext('2d');
+      ctx.fillStyle='#fff';ctx.fillRect(0,0,160,160);
+      ctx.drawImage(img,8,8,144,144);
+    };
+    img.onerror=function(){
+      // fallback: just show URL text
+      canvas.width=200;canvas.height=40;
+      var ctx=canvas.getContext('2d');
+      ctx.fillStyle='#fff';ctx.fillRect(0,0,200,40);
+      ctx.fillStyle='#000';ctx.font='11px sans-serif';
+      ctx.fillText(text,4,24);
+    };
+    img.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(text);
+  }catch(e){}
+};
 </script>
 </body>
 </html>
